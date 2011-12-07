@@ -1,0 +1,17 @@
+TODO:
+- Documentation / Readme
+- Apidoc
+- Changelog
+- License
+
+BUGS:
+- ZClipboard funzt nicht.
+
+Postingtool future features
+- save character data to cookie and add to rolls
+- Popup character sheet
+- multi language support
+- more configuration options
+- use DS Icons for Eyecandy
+- transform into SMF Plugin and ask CK to integrate it into the forum
+- button um url im unteren Frame zu laden
