@@ -81,13 +81,13 @@
       }
 
       function createRollCode(times, dice, desc, select, prop) {
-        var sCode;
+	var sCode;
 
-        sCode = "[roll]";
-        sCode += "{";
-        if(desc != "") sCode += desc +"; ";
+	sCode = "[roll]";
+	sCode += "{";
+	if(desc != "") sCode += desc +"; ";
 
-        if(select != "leer") {
+	if(select != "leer") {
             var theText = select.split(":");
 
             switch (theText[0]) {
@@ -99,9 +99,9 @@
 
                 default: sCode += theText[ 0];
             }
-        }
+	}
 
-        if(prop != "") {
+	if(prop != "") {
             var nTotal = 0;
             var nCount = 0;
             var nPosStart = 0;
@@ -129,11 +129,11 @@
 
             if( nCount == 1) sCode += " - " +prop +" | ";
             else sCode += " - " + prop +"= " +nTotal +" | ";
-        } //if
+	} //if
 
-        sCode += "}";
-        sCode += dice + "x" + times;
-        sCode +="[/roll]\n";
+	sCode += "}";
+	sCode += dice + "x" + times;
+	sCode +="[/roll]\n";
 
         return sCode;
       }
@@ -154,7 +154,7 @@
             );
             code= createRollCode(
                 $("input#textRollTimes").val(),
-                $("input#textRoll").val(),
+                $("input#textRolloll").val(),
                 $("input#textRollDesc").val(),
                 $("select").val(),
                 $("input#textRollProperties").val()
@@ -269,7 +269,7 @@
             sText += theProps[x] +"() ";
             }
 
-            $('#textRollProperties').val(sText);
+            $('#text_RollProperties').val(sText);
 
             return (true);
         });
