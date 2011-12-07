@@ -1,0 +1,76 @@
+body {
+  font: 62.5% "Trebuchet MS", sans-serif;
+  background-color: #222;
+}
+
+
+wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+posttool {
+  width: 100%;
+  height: 150px;
+}
+
+#right {
+    float: right;
+    width: 20%;
+    height: 130x;
+}
+
+#sortableSaylist {
+    margin-top: 0px;
+    margin-bottom: 2px;
+    list-style-type: none;
+    float: left;
+    width: 79%;
+    height: 130px;
+    padding: 0;
+}
+
+#sortableSaylist li {
+  margin: 3px 3px 3px 3px;
+  padding: 0.4em;
+  padding-left: 1.5em;
+  width: 95%;
+}
+
+#sortableSaylist li span {
+  margin-top: -2px;
+}
+
+#sortableSaylist li span.front { 
+  position: absolute;
+  margin-left: -1.4em;
+}
+
+#sortableSaylist li span.back1 {
+  right: 20px;
+}
+
+
+.ui-state-highlight {
+  height: 1.5em;
+  line-height: 1.2em;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  background: url("images/ui-bg_glass_40_ffc73d_1x400") repeat-x scroll 50% top #F58400 !important;
+  border: 0px solid #F58400 !important;
+}
+
+.ui-state-selected {
+  background: url("images/ui-bg_glass_40_ffc73d_1x400") repeat-x scroll 50% top #F58400 !important;
+}
+
+.button {
+  width: 100%;
+  margin-bottom: 3px;
+}
+
+#sortableSaylist li span.floatright {
+  float: right;
+}
