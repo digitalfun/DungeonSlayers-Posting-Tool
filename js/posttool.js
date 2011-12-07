@@ -5,7 +5,7 @@
           'Say'   : '[color=blue]>>{text}<<[/color]\n',
           'Think' : '[i]>>{text}<<[/i]\n',
           'Roll'  : '[roll] {{text}} {dice}[/roll]\n',
-          'Plain' : '{text}'
+          'Plain' : '{text}\n'
         },
         colors: {
           'Character name': 'blue',
