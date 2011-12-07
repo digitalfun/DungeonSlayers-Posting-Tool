@@ -1,0 +1,53 @@
+Version 2.?.?, released ????-??-??
+---------------------------------------
+
+Heads up!
+~~~~~~~~~
+Bugfixes
+~~~~~~~~
+Features
+~~~~~~~~
+
+
+Version 2.0.3, released ????-??-??
+---------------------------------------
+
+Heads up!
+~~~~~~~~~
+Bugfixes
+~~~~~~~~
+ - add missing line brake or "Plain" snippet
+   (steyner)
+
+Features
+~~~~~~~~
+ - updated License
+   (steyner)
+ - updated Readme
+   (steyner)
+
+
+
+Version 2.0.2, released 2010-12-07
+---------------------------------------
+
+Heads up!
+~~~~~~~~~
+Bugfixes
+~~~~~~~~
+
+Features
+~~~~~~~~
+ - started changelog by checking in current working version
+   (steyner)
+
+
+Last edit:
+ *30.8.2011
+------------------------------
+ VERSION HISTORY:
+ 1.04: @createCode_Roll(): changed code for multiple rolls from "*" to "x" (1d20x2 = two times 1d20)
+ 1.03: @createCode_Roll(): added DS Forum-Symbols ( :kw5: etc)
+ 1.02: @createCode_OOC(): added [size]-tag
+ 1.01: added MIT-License
+ 1.00: Release
