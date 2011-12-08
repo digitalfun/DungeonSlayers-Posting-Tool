@@ -149,18 +149,40 @@
         return config.colors[type];
       }
 
+      /*
+       * assemble text to be displayed on roll bricks
+       *
+       * @param string times number of times to roll
+       * @param string dice number and type of dice to roll e.g. "3d20"
+       * @param string desc description text
+       * @param string prop properties of the roll
+       * @returns string text to be displayed on brick
+       *
+       * @TODO: get text snippet from config
+       * @TODO: param checking
+       */
       function createRollInput(times, dice, desc, prop) {
           return 'roll '+times+' times '+dice+' with text "'+desc+'" values '+prop;
       }
 
+      /*
+       * @param string times number of times to roll
+       * @param string dice number and type of dice to roll e.g. "3d20"
+       * @param string desc description text
+       * @param string select value of roll type dropdown select
+       * @param string prop properties of the roll
+       * @returns string BB code of the brick
+       *
+       * @TODO: much to big and complicated needs refactoring
+       */
       function createRollCode(times, dice, desc, select, prop) {
-	var sCode;
+        var sCode;
 
-	sCode = "[roll]";
-	sCode += "{";
-	if(desc != "") sCode += desc +"; ";
+        sCode = "[roll]";
+        sCode += "{";
+        if(desc != "") sCode += desc +"; ";
 
-	if(select != "leer") {
+        if(select != "leer") {
             var theText = select.split(":");
 
             switch (theText[0]) {
@@ -172,9 +194,9 @@
 
                 default: sCode += theText[ 0];
             }
-	}
+        }
 
-	if(prop != "") {
+        if(prop != "") {
             var nTotal = 0;
             var nCount = 0;
             var nPosStart = 0;
@@ -202,11 +224,11 @@
 
             if( nCount == 1) sCode += " - " +prop +" | ";
             else sCode += " - " + prop +"= " +nTotal +" | ";
-	} //if
+        } //if
 
-	sCode += "}";
-	sCode += dice + "x" + times;
-	sCode +="[/roll]\n";
+        sCode += "}";
+        sCode += dice + "x" + times;
+        sCode +="[/roll]\n";
 
         return sCode;
       }
