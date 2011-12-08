@@ -1,5 +1,5 @@
 /*
- * This class is part of the DungeonSlayers Forum Post Tool
+ * This file is part of the DungeonSlayers Forum Post Tool
  *
  * Copyright 2011, DSFPT Dev Team (see README)
  *
