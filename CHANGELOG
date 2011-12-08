@@ -9,7 +9,18 @@ Features
 ~~~~~~~~
 
 
-Version 2.0.3, released ????-??-??
+Version 2.0.4, released ????-??-??
+---------------------------------------
+
+Heads up!
+~~~~~~~~~
+Bugfixes
+~~~~~~~~
+Features
+~~~~~~~~
+
+
+Version 2.0.3, released 2010-12-08
 ---------------------------------------
 
 Heads up!
@@ -17,6 +28,8 @@ Heads up!
 Bugfixes
 ~~~~~~~~
  - add missing line brake or "Plain" snippet
+   (steyner)
+ - fix 2 code typos in roll logic
    (steyner)
 
 Features
@@ -28,6 +41,8 @@ Features
  - updated Apidoc on posttool.js
    - fixed issue #4
    (steyner)
+ - updated readme
+   (digitalfun)
 
 
 
