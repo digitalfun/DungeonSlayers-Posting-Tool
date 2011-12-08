@@ -1,4 +1,26 @@
+/*
+ * This class is part of the DungeonSlayers Forum Post Tool
+ *
+ * Copyright 2011, DSFPT Dev Team (see README)
+ *
+ * File: posttool.js
+ * Type: JavaScript
+ *
+ * Released under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ * 
+ */
+
+
+      /*
+       * Config JSON Object
+       * 
+       *  TODO: Move to separate file
+       */
       config= {
+        /*
+         * Text Snippets for different text bricks
+         */
         snippets: {
           'Character name': ':ds: [color=blue][b][size=12pt]{text}[/size][/b][/color]\n',
           'OOC'   : '[color=red][size=8pt][i]OOC: {text}[/i][/size][/color]\n',
@@ -7,6 +29,9 @@
           'Roll'  : '[roll] {{text}} {dice}[/roll]\n',
           'Plain' : '{text}\n'
         },
+        /*
+         * Text colors for displaying the text bricks in the UI
+         */
         colors: {
           'Character name': 'blue',
           'OOC' : 'red',
@@ -17,21 +42,33 @@
         }
       }
 
-      //update source field
+      /*
+       * update source field
+       *
+       * @param void
+       * @return void
+       */
       function updateSource() {
-        var source;
+        var source='';
 
-        source='';
+        // iterate all text bricks in the sortable list
         $('#sortableSaylist').children().each(
           function(index){
+            // collect the brick's source
             source+= decodeURI($(this).attr('source'));
           }
         );
 
+        //store complete source to hidden textarea
         $('textarea#source').html(source);
       }
 
-      //build a text brick
+      /*
+       * build a text brick
+       *
+       * @param
+       *
+       */
       function createTextBrick(text, source, colour, type) {
         textbrick= $('<li class="ui-state-default ui-corner-all">');
         textbrick.attr('source', encodeURI(source));
