@@ -66,27 +66,45 @@
       /*
        * build a text brick
        *
-       * @param
+       * Source returned:
+       *   <li class="ui-state-default ui-corner-all"
+       *         source="{source}"
+       *         type="{type}"
+       *         timestamp="{timestamp}"
+       *   >
+       *      <span class="ui-icon ui-icon-arrowthick-2-n-s front"></span>
+       *      <span class="text" style="color:{color};">
+       *      <span class="ui-icon ui-icon-close floatright back2">
+       *      <span class="ui-icon ui-icon-pencil floatright back1">
+       *   </li>
+       *
+       * @param text   string text of the brick to be displayed in UI
+       * @param source string BB source of the text brick
+       * @param color  string colour to use to display text in UI
+       * @param type   string type of text brick
        *
        */
-      function createTextBrick(text, source, colour, type) {
+      function createTextBrick(text, source, color, type) {
         textbrick= $('<li class="ui-state-default ui-corner-all">');
         textbrick.attr('source', encodeURI(source));
         textbrick.attr('type', type);
         textbrick.attr('timestamp', (new Date).getTime());
         textbrick.append('<span class="ui-icon ui-icon-arrowthick-2-n-s front">');
         textbrick.append(
-            $('<span class="text" style="color:'+colour+';">').text(text)
+            $('<span class="text" style="color:'+color+';">').text(text)
         );
         textbrick.append(
             $('<span class="ui-icon ui-icon-close floatright back2">')
+                // attach "onclick" event handler to delete brick
                 .click(function(event){
                     $(event.currentTarget).parent().remove();
                 })
         );
         textbrick.append(
             $('<span class="ui-icon ui-icon-pencil floatright back1">')
+                // attach "onclick" event handler to edit brick
                 .click(function(event){
+                    // preset edit form fields from brick data
                     $('input#type').val(
                         $(event.currentTarget).parent().attr('type')
                     );
@@ -101,13 +119,18 @@
                     $("#dialog-form").dialog('open');
                 })
         );
+
+        // add brick to list
+        // TODO: does this belong into this function??
         textbrick.appendTo($('#sortableSaylist'));
         return textbrick;
       }
 
+
       function createCode(text, snippet) {
         return config.snippets[snippet].replace(/\{text\}/g, text);
       };
+
 
       function getColor(type) {
         return config.colors[type];
