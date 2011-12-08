@@ -263,7 +263,7 @@
             );
             code= createRollCode(
                 $("input#textRollTimes").val(),
-                $("input#textRolloll").val(),
+                $("input#textRoll").val(),
                 $("input#textRollDesc").val(),
                 $("select").val(),
                 $("input#textRollProperties").val()
@@ -397,7 +397,7 @@
             sText += theProps[x] +"() ";
             }
 
-            $('#text_RollProperties').val(sText);
+            $('#textRollProperties').val(sText);
 
             return (true);
         });
