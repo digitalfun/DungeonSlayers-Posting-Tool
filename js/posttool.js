@@ -295,6 +295,8 @@
         updateSource();
       };
 
+
+
       /*
        *  setup UI events
        *  in other languages this is the 'main' method.
@@ -304,15 +306,18 @@
        *  @todo: Move everything to small functions to keep this as modular as possible
        */
       $(document).ready(function(){
-        // Sortable
+        // Sortable List to store bricks in
         $( "#sortableSaylist").sortable({
             placeholder: "ui-state-highlight",
             change: function(event, ui) {
+              // update source after sorting bricks
               updateSource();
             }
         });
         $( "#sortableSaylist").disableSelection();
 
+        // These are the type select buttons.
+        // Use a chack to make them behave like radio buttons
         $('input#type').change(function(){
             // do something to set buttons correctly
 
@@ -331,6 +336,7 @@
         });
 
 
+        // configure popup dialog
         $("#dialog-form").dialog({
           autoOpen: false,
           height: 140,
@@ -371,6 +377,7 @@
           },
           create: function(event, ui) {
             // fix button pane
+            // @warning evil bad code
             $('span.ui-button-text:contains("Plain")').parent().css('margin-right', '25px');
             $('input#type').val('Character name');
             $('input#type').change();
@@ -379,6 +386,7 @@
 
         //roll selectbox
         $('select').change(function(){
+            // update properties textarea
             var theProps = $(this).val();
             var sText = "";
 
@@ -404,6 +412,10 @@
             alert($('textarea#source').val());
         });
 
+        /*
+         * copy to clipboard button
+         * @bug currently doesn't work
+         */
         $('a#post').button().zclip({
             path: "ZeroClipboard.swf",
             copy: function(){
