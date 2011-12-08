@@ -126,12 +126,25 @@
         return textbrick;
       }
 
-
+      /*
+       * get the code template from the config and replace placeholder
+       * with brick text
+       *
+       * @param text    string brick text from input form
+       * @param snippet string snippet key as reference to config
+       * @return string BB code
+       */
       function createCode(text, snippet) {
         return config.snippets[snippet].replace(/\{text\}/g, text);
       };
 
-
+      /*
+       * get the color value flom config
+       *
+       * @param type string key to look up the color
+       * @returns string HTML color value from config
+       *
+       */
       function getColor(type) {
         return config.colors[type];
       }
