@@ -14,8 +14,6 @@
 /*
  * update source field
  *
- * @param void
- * @return void
  */
 function updateSource() {
     var source='';
@@ -211,8 +209,6 @@ function createRollCode(times, dice, desc, select, prop) {
  * get the form values and bake a brick
  * i.e. save a new one or update an existing one
  *
- * @param void
- * @return void
  *
  * @todo: needs refactoring
  */
