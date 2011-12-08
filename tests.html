@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+ * This file is part of the DungeonSlayers Forum Post Tool
+ *
+ * Copyright 2011, DSFPT Dev Team (see README)
+ *
+ * File: posttool_frame.html
+ * Type: JavaScript
+ *
+ * Released under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+-->
+<html>
+    <head>
+        <title>Post Tool Unittests</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <link type="text/css" href="css/ui-darkness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+        <link type="text/css" href="css/posttool.css" rel="stylesheet" />
+        <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+        <script type="text/javascript" src="js/settings.js"></script>
+        <script type="text/javascript" src="js/posttool.js"></script>
+        <script type="text/javascript" src="js/jquery.zclip.min.js"></script>
+        <script type="text/javascript" src="tests/qunit-1.2.0.js"></script>
+        <script type="text/javascript" src="tests/tests.js"></script>
+    </head>
+    <body>
+     <h1 id="qunit-header">QUnit example</h1>
+     <h2 id="qunit-banner"></h2>
+     <div id="qunit-testrunner-toolbar"></div>
+     <h2 id="qunit-userAgent"></h2>
+     <ol id="qunit-tests"></ol>
+     <div id="qunit-fixture">
+        <div id="dialog-form" title="Add/Edit text brick">
+          <form>
+            <input type="hidden" id="type" value="char"/>
+            <input type="hidden" id="edit" value=""/>
+            <textarea id="textAll"></textarea>
+            <div id="rollform" style="display:none">
+                <div id="upperrow">
+                    roll <input id="textRollTimes" size="2"/>
+                    times <input id="textRoll" size="3" value="1d20"/>
+                    with text <input id="textRollDesc" size="30"/>
+                    values <input id="textRollProperties" size="20"/>
+                </div>
+                <select id="selectProbe">
+                    <option value="leer"></option>
+                    <option value="Schlagen:">Kampfwert: Schlagen</option>
+                    <option value="Schiessen:">Kampfwert: Schiessen</option>
+                    <option value="Abwehr:">Kampfwert: Abwehren</option>
+                    <option value="Zaubern:">Kampfwert: Zaubern</option>
+                    <option value="Zielzauber:">Kampfwert: Zielzauber</option>
+                    <option value="Bemerken:GEI,VE">Bemerken (min.8, Diebeskunst,Wahrnehmung)</option>
+                    <option value="Erwachen:GEI,VE">Erwachen (Schnelle Reflexe,Wahrnehmung)</option>
+                    <option value="Falle entschärfen:GEI,GE">Fallen entschärfen (Diebeskunst)</option>
+                    <option value="Feilschen:GEI,VE,AU">Feilschen(Charmant,Schlitzohr)</option>
+                    <option value="Feuer machen:GEI,GE">Feuer machen (Jäger)</option>
+                    <option value="Flirten:GEI,AU">Flirten (Charmant)</option>
+                    <option value="Gift trotzen:KÖR,HÄ">Gift trotzen (Einstecker)</option>
+                    <option value="Inschrift entziffern:GEI,VE">Inschrift entziffern (Wahrnehmung,Bildung)</option>
+                    <option value="Klettern:AGI,ST">Klettern (Akrobat,Kletterass)</option>
+                    <option value="Kraftakt:KÖR,ST">Kraftakt (Brutaler Hieb,Vernichtender Schlag)</option>
+                    <option value="Krankheit trotzen:KÖR,HÄ">Krankheit trotzen (Einstecker)</option>
+                    <option value="Magie spüren:GEI,AU">Magie spüren (nur Zauberwirker)</option>
+                    <option value="Magie begreifen:GEI,VE">Magie begreifen (nur Zauberwirker)</option>
+                    <option value="Mechanismus öffnen:GEI,GE,VE">Mechanismus öffnen (Diebeskunst,Handwerk,Schlossknacker)</option>
+                    <option value="Orientieren:GEI,VE,AU">Orientieren (Jäger)</option>
+                    <option value="Reiten:AGI,BE,AU">Reiten (Reiten, Sattelschütze,Tiermeister)</option>
+                    <option value="Schätzen:GEI,VE">Schätzen (Beute schätzen)</option>
+                    <option value="Schleichen:AGI,BE">Schleichen (Heimlichkeit)</option>
+                    <option value="Schloss öffnen:GEI,GE">Schlösser öffnen (Diebeskunst,Schlossknacker)</option>
+                    <option value="Schwimmen:AGI,BE">Schwimmen (Schwimmen)</option>
+                    <option value="Springen:AGI,BE">Springen (Akrobat)</option>
+                    <option value="Spuren lesen:GEI,VE">Spuren lesen (Jäger,Wahrnehmung)</option>
+                    <option value="Suchen:GEI,VE">Suchen (min.8, Diebeskunst,Heimlichkeit,Wahrnehmung)</option>
+                    <option value="Taschendiebstahl:AGI,GE">Taschendiebstahl (Diebeskunst,Heimlichkeit)</option>
+                    <option value="Verbergen:AGI,BE">Verbergen (Heimlichkeit)</option>
+                    <option value="Verständigen:GEI,GE">Verständigen (Bildung)</option>
+                    <option value="Wissen:GEI,VE">Wissen (Bildung,Wissensgebiet)</option>
+                    <option value="Zauber wechseln:GEI,VE">Zauber wechseln</option>
+                </select>
+            </div>
+          </form>
+        </div>
+
+        <textarea style="display:none;" id="source"></textarea>
+
+        <div class="wrapper">
+          <div class="posttool">
+            <ul id="sortableSaylist" class='ui-widget ui-widget-content ui-corner-all'>
+            </ul>
+            <div id="right">
+              <a id="add"  class="button">Add text brick</a>
+              <a id="view" class="button">View Source</a>
+              <a id="post" class="button">Copy to clipboard</a>
+            </div>
+          </div>
+        </div>
+     </div>
+    </body>
+</html>
