@@ -173,7 +173,10 @@
        * @param string prop properties of the roll
        * @returns string BB code of the brick
        *
+       * @var string sCode stores BB Code
+       *
        * @TODO: much to big and complicated needs refactoring
+       * @TODO: get snippet parts from config
        */
       function createRollCode(times, dice, desc, select, prop) {
         var sCode;
@@ -185,6 +188,7 @@
         if(select != "leer") {
             var theText = select.split(":");
 
+            // add bb Icon for basic actions
             switch (theText[0]) {
                 case 'Schlagen': sCode += ":kw5: "; break;
                 case 'Schiessen': sCode += ":kw6: "; break;
@@ -196,6 +200,7 @@
             }
         }
 
+        // evaluate propertiy settings
         if(prop != "") {
             var nTotal = 0;
             var nCount = 0;
@@ -233,13 +238,22 @@
         return sCode;
       }
 
-      //get the form values and bake a brick
+      /*
+       * get the form values and bake a brick
+       * i.e. save a new one or update an existing one
+       *
+       * @param void
+       * @return void
+       *
+       * @todo: needs refactoring
+       */
       function saveBrick(){
         var type, input, brick, list, edit, code;
 
         edit=  $('input#edit').val();
         type=  $('input#type').val();
 
+        // get values from special roll form
         if (type == 'Roll') {
             input= createRollInput(
                 $("input#textRollTimes").val(),
@@ -259,6 +273,7 @@
             code= createCode(input, type);
         }
 
+        //create brick
         brick= createTextBrick(
             input,
             code,
@@ -268,16 +283,26 @@
         list= $('#sortableSaylist');
 
         if (edit != "") {
+            // replace existing brick (update)
             list.children('li[timestamp='+edit+']').replaceWith(brick)
         } else {
+            // save new brick
             list.append(brick);
         }
 
+        // reset edit field
         $('input#edit').val('');
         updateSource();
       };
 
-      // setup UI events
+      /*
+       *  setup UI events
+       *  in other languages this is the 'main' method.
+       *  this is run on startup after loading the DOM
+       *  It sets up the event handlers for all initial UI components
+       *
+       *  @todo: Move everything to small functions to keep this as modular as possible
+       */
       $(document).ready(function(){
         // Sortable
         $( "#sortableSaylist").sortable({
